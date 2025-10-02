@@ -1,9 +1,17 @@
 local Window = {}
 
+-- Get repo base URL
 local repo = "https://raw.githubusercontent.com/aUxcDeVs/Simple-Library-/refs/heads/main/"
 
 local function loadModule(path)
-    return loadstring(game:HttpGet(repo..path))()
+    local success, result = pcall(function()
+        return loadstring(game:HttpGet(repo..path))()
+    end)
+    if not success then
+        warn("Failed to load module:", path, result)
+        return {}
+    end
+    return result
 end
 
 local ButtonX = loadModule("Window/ButtonX.lua")
