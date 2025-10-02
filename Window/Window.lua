@@ -1,6 +1,6 @@
 local Window = {}
 
-local repo = "https://raw.githubusercontent.com/aUxcDeVs/Simple-Library-/main/"
+local repo = "https://raw.githubusercontent.com/aUxcDeVs/Simple-Library-/refs/heads/main/"
 
 local function loadModule(path)
     return loadstring(game:HttpGet(repo..path))()
